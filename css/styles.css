@@ -62,5 +62,5 @@ body {
 
 @keyframes animate {
     from { transform: rotate3d(0, 0, 0, 0deg); }
-    to { transform: rotate3d(1, 0, 1, 1turn); }
+    to { transform: rotate3d(.25, 0, -.1, 360deg); }
 }
