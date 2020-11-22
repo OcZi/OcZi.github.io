@@ -1,0 +1,66 @@
+body {
+    background: rgb(106, 72, 177);
+    background: linear-gradient(
+            128deg,
+            rgba(106, 72, 177, 1) 0%,
+            rgba(64, 58, 164, 1) 42%,
+            rgba(25, 70, 122, 1) 99%);
+}
+
+.scene {
+    width: 200px;
+    height: 300px;
+    margin: 124px auto;
+    perspective: 400px;
+}
+
+.cube {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    transition: transform 0.5s;
+    animation: animate 5s linear infinite
+}
+
+.face {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #25117c;
+    background: linear-gradient(
+            128deg,
+            rgba(106, 72, 177, 1) 0%,
+            rgba(64, 58, 164, 1) 42%,
+            rgb(34, 96, 168) 99%);
+    position: absolute;
+}
+
+.face--front {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.face--right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.face--back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.face--left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.face--top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.face--bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes animate {
+    from { transform: rotate3d(0, 0, 0, 0deg); }
+    to { transform: rotate3d(1, 0, 1, 1turn); }
+}
