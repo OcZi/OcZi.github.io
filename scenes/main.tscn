@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpkyuhgr2olam"]
+
+[ext_resource type="PackedScene" uid="uid://cqr280517n5x" path="res://scenes/terrain.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dixa0wq7svpd5" path="res://scenes/player.tscn" id="4"]
+[ext_resource type="Script" path="res://src/Game.gd" id="5"]
+[ext_resource type="FontFile" uid="uid://3glr4f0do3b8" path="res://resources/font_data.tres" id="5_xuvbk"]
+[ext_resource type="FontFile" uid="uid://fi77kbk1qqru" path="res://resources/font.tres" id="6_ffutm"]
+[ext_resource type="AudioStream" uid="uid://du7r5hayb4cbv" path="res://resources/llama-score.mp3" id="8"]
+[ext_resource type="Script" path="res://src/EndTask.gd" id="9"]
+
+[sub_resource type="RectangleShape2D" id="14"]
+size = Vector2(19, 78.375)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("5")
+enemy_spawn = Vector2(100, -8.9)
+cloud_spawn = Vector2(100, -15)
+
+[node name="Terrain" parent="." instance=ExtResource("1")]
+
+[node name="Player" parent="." instance=ExtResource("4")]
+position = Vector2(-45, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -25)
+zoom = Vector2(3.5, 3.5)
+
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ScoreLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 55.0
+offset_top = -54.0
+offset_right = 255.0
+offset_bottom = -30.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_xuvbk")
+theme_override_font_sizes/font_size = 20
+text = "SCORE:%06d"
+
+[node name="HighScoreLabel" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 15.0
+offset_top = -54.0
+offset_right = 155.0
+offset_bottom = -30.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_ffutm")
+theme_override_font_sizes/font_size = 20
+text = "HI:%06d"
+
+[node name="ScoreAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8")
+
+[node name="DespawnArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DespawnArea"]
+position = Vector2(-258, -40)
+shape = SubResource("14")
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -18.0
+offset_top = -26.0
+offset_right = 162.0
+offset_bottom = -2.0
+scale = Vector2(0.2, 0.2)
+tooltip_text = "XD"
+mouse_filter = 1
+mouse_default_cursor_shape = 8
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_ffutm")
+theme_override_font_sizes/font_size = 20
+text = "GAME OVER"
+
+[node name="StartLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = -38.0
+offset_top = -26.0
+offset_right = 342.0
+offset_bottom = -2.0
+scale = Vector2(0.2, 0.2)
+tooltip_text = "XD"
+mouse_filter = 1
+mouse_default_cursor_shape = 8
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_ffutm")
+theme_override_font_sizes/font_size = 16
+text = "PRESS JUMP TO START"
+horizontal_alignment = 1
+
+[node name="EndTask" type="Node" parent="."]
+process_mode = 2
+script = ExtResource("9")
+
+[connection signal="collide" from="Player" to="." method="_on_Player_collide"]
+[connection signal="start" from="Player" to="." method="_on_Player_start"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="body_exited" from="DespawnArea" to="." method="_on_DespawnArea_body_exited"]
