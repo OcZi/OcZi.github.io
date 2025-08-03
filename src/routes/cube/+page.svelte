@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="icon" href="img/png/favicon.png">
-<script type="js/main.js"></script>
-<head>
-    <title>A CSS 3D Cube</title>
-</head>
-<body>
+<script lang="ts">
+    import "../../cube.css";
+
+
+</script>
+
+
 <div class="scene">
     <div class="cube">
         <div class="face face--front"></div>
@@ -19,5 +15,3 @@
         <div class="face face--bottom"></div>
     </div>
 </div>
-</body>
-</html>

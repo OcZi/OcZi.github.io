@@ -1,38 +1,29 @@
-body {
-    background: rgb(106, 72, 177);
-    background: linear-gradient(
-            128deg,
-            rgba(106, 72, 177, 1) 0%,
-            rgba(64, 58, 164, 1) 42%,
-            rgba(25, 70, 122, 1) 99%);
-}
+
 
 .scene {
-    width: 200px;
-    height: 300px;
-    margin: 124px auto;
     perspective: 400px;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cube {
-    width: 300px;
+    width: 200px;
     height: 200px;
     position: relative;
     transform-style: preserve-3d;
     transform: translateZ(-100px);
     transition: transform 0.5s;
-    animation: animate 5s linear infinite
+    animation: animate 5s linear infinite;
 }
 
 .face {
     width: 200px;
     height: 200px;
-    border: 2px solid #25117c;
-    background: linear-gradient(
-            128deg,
-            rgba(106, 72, 177, 1) 0%,
-            rgba(64, 58, 164, 1) 42%,
-            rgb(34, 96, 168) 99%);
+    border: 2px solid rgba(0, 0, 0, 0.3);
     position: absolute;
 }
 

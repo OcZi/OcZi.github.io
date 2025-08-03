@@ -1,2 +1,2 @@
-/.idea/
-/OcZi.github.io.iml
+node_modules
+.svelte-kit/
