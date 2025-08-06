@@ -7,3 +7,47 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.sec-spacing {
+  margin-top: 2.5rem; 
+}
+
+.title {
+  font-size: 32px
+}
+
+.important-text {
+  border-bottom: 2px solid currentColor;
+  cursor: pointer;
+}
+
+.important-text:hover {
+  border-bottom: 2px solid currentColor;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.relevant-text {
+  font-size: 16px;
+}
+
+.less-text {
+  font-size: 14px;
+}
+
+.relevant-icon {
+  display: inline;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.less-icon {
+  display: inline;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}

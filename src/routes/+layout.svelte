@@ -17,8 +17,8 @@
         <div class="mx-auto max-w-7xl flex justify-between items-center px-4 sm:px-6 lg:px-8">
             <h1 class="text-xl font-bold">{DOMAIN_NAME}</h1>
             <nav class="space-x-4">
-                <a href="/" class="hover:underline">Inicio</a>
-                <a href="/acerca" class="hover:underline">Acerca</a>
+                <a href="/" class="hover:underline">Home</a>
+                <a href="/portfolio" class="hover:underline">Portfolio</a>
             </nav>
         </div>
     </header>
