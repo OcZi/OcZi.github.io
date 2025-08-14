@@ -12,7 +12,7 @@ const config = {
 			fallback: '404.html'
 		}), 
 		alias: { $components: 'src/components' },
-		paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH, assets: '/OcZi.github.io' } 
+		paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH } 
 	},
 	extensions: ['.svelte', '.svx'],
 };
