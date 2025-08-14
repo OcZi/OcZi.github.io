@@ -9,10 +9,12 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex()],
 	kit: { 
 		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
 			fallback: '404.html'
 		}), 
 		alias: { $components: 'src/components' },
-		paths: { base: process.argv.includes('dev') ? '' : process.env.BASE_PATH } 
+		paths: { base: '' } 
 	},
 	extensions: ['.svelte', '.svx'],
 };
