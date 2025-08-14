@@ -15,15 +15,15 @@
 
     <header class="w-full border-b border-gray-300 p-4">
         <div class="mx-auto max-w-7xl flex justify-between items-center px-4 sm:px-6 lg:px-8">
-            <h1 class="text-xl font-bold">{DOMAIN_NAME}</h1>
+            <a class="text-xl font-bold" href="/">{DOMAIN_NAME}</a>
             <nav class="space-x-4">
                 <a href="/" class="hover:underline">Home</a>
-                <a href="/portfolio" class="hover:underline">Portfolio</a>
+                <a href="/about" class="hover:underline">Portfolio</a>
             </nav>
         </div>
     </header>
 
-    <main class="flex-1 ">
+    <main class="flex-1 flex-grow">
 	    <slot />
     </main>
 

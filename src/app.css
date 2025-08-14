@@ -17,15 +17,13 @@
 }
 
 .important-text {
-  border-bottom: 2px solid currentColor;
   cursor: pointer;
 }
 
 .important-text:hover {
-  border-bottom: 2px solid currentColor;
   color: white;
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.01s ease-in-out;
 }
 
 .relevant-text {
@@ -48,6 +46,12 @@
   display: inline;
   width: 25px;
   height: 25px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.just-icon {
+  display: inline;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
 }

@@ -9,6 +9,7 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex()],
 	kit: { 
 		adapter: adapter(), 
+		alias: { $components: 'src/components' },
 		paths: { base: '' } 
 	},
 	extensions: ['.svelte', '.svx'],
